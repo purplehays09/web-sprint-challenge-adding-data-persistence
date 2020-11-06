@@ -2,7 +2,7 @@ const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan')
 
-const ProjectRouter = requre('./projects/proect-router.js')
+const ProjectRouter = require('./projects/project-router.js')
 
 const server = express();
 
@@ -11,6 +11,10 @@ server.use(morgan());
 server.use(express.json());
 
 server.use('/api/projects', ProjectRouter);
+
+server.get('/', (req,res) => {
+    res.status(200).json({message:"WE DID IT"})
+})
 
 
 module.exports = server;
